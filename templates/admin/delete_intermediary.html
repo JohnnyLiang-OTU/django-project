@@ -1,0 +1,10 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<h>Desea eliminar todos los objetos seleccionados?</h><br>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="queryset" value="{{ queryset }}">
+    <input type="button" value="Confirmar">
+</form>
+<a href="{% url "admin" %}">Cancelar</a>
+{% endblock %}

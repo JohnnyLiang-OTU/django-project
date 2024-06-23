@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}Catalogo{% endblock title %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/catalogo.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<div class="card-container">
+    {% for product in products %}
+        <div class="card">
+            <!-- {{ product.id }} - {{ product.product_id }} - {{ product.description }} -->
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="Product Image" class="card-image">
+                <!-- {{product.image.url}} -->
+            {% else %}
+                <div class="card-image-default">No image available for this product</div>
+            {% endif %}
+            <div class="card-content">
+                <!-- <p class="card-id">{{ product.product_id }}</p> -->
+                <p class="card-description">{{ product.description }}</p>
+            </div>
+            <!-- <a href="{% url 'edit-form' product.id %}">Edit</a>
+            <form method="POST" action="{% url 'delete-product' product.id %}">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form> -->
+            <br>
+        </div>
+    {% endfor %}
+</div>
+<br/><br/>
+{{ products }}
+{% if products.has_previous  %}
+    <a href="?page=1">&laquo; First</a>
+    <a href="?page={{products.previos_page_number}}">Previous</a>
+{% endif %}
+{% if products.has_next %}
+    <a href="?page={{products.next_page_number}}">Next</a>
+    <a href="?page={{products.paginator.num_pages}}">&raquo; Last</a>
+{% endif %}
+{% endblock content %}

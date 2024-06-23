@@ -1,0 +1,14 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+{% block content %}
+    <script src="{% static 'js/admin_list.js' %}"></script>
+    {% for product in products %}
+    <div id="{{product.id}}">
+        <input type="checkbox" autocomplete="off" onclick="handle_checkbox(this, {{product.id}})">
+        <label>{{product.id}}</label>
+        <label>{{product.description}}</label>
+    </div>
+    {% endfor %}
+    <!-- <button type="button" onclick="delete_model_instances()">Delete</button> -->
+    <button type="button" onclick="delete_checked_products(event)">Delete</button>
+{% endblock content %}
