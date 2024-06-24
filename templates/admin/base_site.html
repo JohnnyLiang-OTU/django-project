@@ -3,11 +3,11 @@
 {% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
 {% block branding %}
 <div id="site-name"><a href="{% url 'admin:index' %}">Auto Centro Santa Rita Administracion</a></div>
-{% block extra_js %}{% endblock %}
+{% block extra_js %}{% endblock extra_js %}
 {% if user.is_anonymous %}
   {% include "admin/color_theme_toggle.html" %}
 {% endif %}
-{% endblock %}
+{% endblock branding %}
 
 {% block content %}
 {% endblock content %}

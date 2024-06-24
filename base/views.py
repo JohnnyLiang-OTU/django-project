@@ -93,5 +93,5 @@ def delete_models(request):
 def administrador(request):
     products = Product.objects.all()
     context = {"products" : products}
-    return render(request, 'admin_list.html', context)
+    return render(request, 'admin/admin_list.html', context)
 
