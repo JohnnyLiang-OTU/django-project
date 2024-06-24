@@ -15,13 +15,16 @@ from django.core.paginator import Paginator
 def product_form(request):
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES)
-        # print(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('catalogo')
-        else:
-            context = {"product_form":ProductForm()}
-    context = {"product_form": ProductForm()}
+            if 'submit_add_another' in request.POST:
+                return redirect('add_product')
+            else:
+                return redirect('catalogo')
+    else:
+        form = ProductForm()
+    
+    context = {"product_form": form}
     return render(request, 'base/productform.html', context)
 
 def edit_form(request, pk):

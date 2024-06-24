@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <style>
         body {
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: darkorange;
+            background-color: orangered;
             height: max-content;
             display: flex;}
+        nav{
+            background-color: darkorange;
+        }
+        nav a{
+            padding: 5px;
+            text
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'images/icon/favicon.png' %}" type="image/png">
     <title>Administracion - Auto Centro Santa Rita</title>
 </head>
 <header>
     <a href="{% url 'administrador' %}"><h1>Auto Centro Santa Rita - Administracion</h1></a>
 </header>
+<nav>
+    <a href="{% url 'administrador' %}">Home</a>
+    <a href="{% url 'add_product' %}">Add Product</a>
+</nav>
 <body>
     {% block content %}
     {% endblock content %}
