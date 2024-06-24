@@ -1,0 +1,21 @@
+footer {
+    flex: 0 0 auto;
+		/* styling */
+	padding: 3rem;
+	background: #575757;
+    text-align: center;
+  }
+
+/* .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+} */
+
+/* .footer-section {
+    margin: 10px;
+} */
+
+.footer-section p {
+    margin: 10px 0; /* Adds space between each paragraph */
+}

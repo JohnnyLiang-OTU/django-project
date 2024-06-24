@@ -1,0 +1,22 @@
+html{
+    font-family: 'Amazon Ember', sans-serif, arial;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: orangered;
+    height: max-content;
+    display: flex;}
+nav{
+    background-color: darkorange;
+    display: flex;
+}
+nav a{
+    padding: 5px;
+    box-sizing: border-box;
+}
+nav a:hover{
+    outline: 2px solid black;
+}

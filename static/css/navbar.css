@@ -1,0 +1,19 @@
+.navbar {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    padding-right: 15px;
+    /* margin-right: 10px; */
+    background-color: #575757;
+    height: max-content;
+}
+
+.navbar a {
+    text-decoration: none; 
+}
+
+.navbar img {
+    display: block;
+    height: fit-content; 
+    width: auto; 
+}

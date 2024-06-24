@@ -1,0 +1,62 @@
+/* The card container holds the cards. The container contain cards duh */
+body{
+    background-color: #757575;
+    /* background-color: grey; */
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 350px);
+    column-gap: 20px;
+    row-gap: auto;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    /* padding: 5px; */
+    /* border: 10px solid red; */
+    /* size: auto; */
+    border: solid red;
+    justify-content: space-between;
+}
+
+.card{
+    /* border-radius: 25px; */
+    /* background-color: #000000; */
+    justify-content: center;
+    align-items: center;
+    /* padding: auto; */
+    margin: 20px 5px 5px 5px;
+    /* width: 100%; */
+    text-align: center;
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+    place-content: center;
+}
+
+.card:hover .card-image{
+    border-radius: 0px;
+    width: 100.2%;
+    height: 200.5px;
+}
+
+.card-image{
+    /* border-radius: 25px; */
+    width: 100%;
+    height: 200px;
+}
+
+.card-image-default{
+    /* place-content: center; */
+    display: inline-block;
+    width: 300px;
+    height: 200px;
+    padding: 0;
+}
+
+.card-id{
+    display: inline-block;
+}
+
+.card-description{
+    display: inline-block;
+}
