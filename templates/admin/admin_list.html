@@ -7,14 +7,14 @@
         <thead>
             <tr>
                 <th>
-                    <input type="checkbox" autocomplete="off" onclick="">
+                    <input id="bulk_checkbox" type="checkbox" autocomplete="off" onclick="handle_bulk_checkbox(this)">
                 </th>
                 <th>Database ID</th>
                 <th>Description</th>
                 <th>Last Updated</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="table_body">
             {% for product in products %}
             <tr id="{{product.id}}" class="table_unit">
                 <th><input type="checkbox" autocomplete="off" onclick="handle_checkbox(this, {{product.id}})"></th>
@@ -26,5 +26,6 @@
         </tbody>
     </table>
     <!-- <button type="button" onclick="delete_model_instances()">Delete</button> -->
-    <button tye="button" onclick="delete_checked_products(event)">Delete</button>
+    <button type="button" onclick="delete_checked_products(event)">Delete</button>
+    <!-- <button type="button" onclick="checked_array_body()">Check</button> -->
 {% endblock content %}
