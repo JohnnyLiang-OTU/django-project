@@ -1,22 +1,20 @@
 {% block brands %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/brands.css' %}">
-<div class="image_container">
-    <div class="slider_wrapper">
-        <div class="image_list">
-            <img src="{% static 'images/brands/aisin.png' %}" alt="img-1" class="image_item">
-            <img src="{% static 'images/brands/luberfiner.png' %}" alt="img-2" class="image_item">
-            <img src="{% static 'images/brands/fp_diesel.jpg' %}" alt="img-3" class="image_item">
-            <img src="{% static 'images/brands/shell.png' %}" alt="img-4" class="image_item">
-            <img src="{% static 'images/brands/fram.webp' %}" alt="img-5" class="image_item">
-            <img src="{% static 'images/brands/terpel.png' %}" alt="img-6" class="image_item">
-            <img src="{% static 'images/brands/wurth.png' %}" alt="img-7" class="image_item">
+<section class="brands">
+    <h2 class="title">Marcas Reconocidas</h2>
+    <button class="prev_button"> <h3> &leftarrow; </h3> </button>
+    <button class="next_button"> <h3> &rightarrow; </h3> </button>
+    <div class="brand_container">
+        <div class="brand_card">
+            <img src="{% static 'images/brands/fram.webp' %}">
+        </div>
+        <div class="brand_card">
+            <img src="{% static 'images/brands/aisin.png' %}">
+        </div>
+        <div class="brand_card">
+            <img class="brand_image" src="{% static 'images/brands/fp_diesel.jpg' %}">
         </div>
     </div>
-    <div class="slider_scrollbar">
-        <div class="scrollbar_track">
-            <div class="scrollbar_trhumb"></div>
-        </div>
-    </div>
-</div>
+</section>
 {% endblock brands %}

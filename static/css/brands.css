@@ -1,49 +1,76 @@
-* {
-    margin : 0;
+*{
+    margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-.slider_wrapper .image_list{
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    overflow-x: auto;
-    scrollbar-width: none;
-    margin-bottom: 30px;
+.brands{
+    position: relative;
+    overflow: hidden;
+    /* padding: 20px; */
+    margin: 0;
 }
-.slider_wrapper .image_list::-webkit-scrollbar{
+
+.title{
+    padding: 0 10vw;
+    font-size: 30px;
+    font-weight: 500;
+    /* margin-bottom: 40px; */
+    text-transform: capitalize;
+}
+
+.brand_container{
+    padding: 0 10vw;
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    /* height: 500px;
+    width: 100%; */
+}
+
+.brand_container::-webkit-scrollbar{
     display: none;
 }
 
-.slider_wrapper .image_list .image_item{
-    width: 100;
-    height: 50px;
+.brand_card{
+    /* flex: 0 0 auto; */
+    width: 250px;
+    height: 100px;
+    /* margin-left: 10px; */
+    margin-right: 10px;
 }
 
-.image_container{
-    max-width: 1200px;
-    width: 95%;
-}
-
-.image_container .slider_scrollbar{
-    height: 24px;
+.brand_card img{
     width: 100%;
-    background: white;
-    display: flex;
+    height: 100%;
     align-items: center;
 }
 
-.slider_scrollbar .scrollbar_track{
-    height: 2px;
-    width: 50%;
-    background-color: black;
-    position: relative;
-    border-radius: 4px;
+.prev_button, .next_button{
+    border: none;
+    width: 10vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 8;
 }
 
-.slider_scrollbar .scrollbar_thumb{
-    position: absolute;
-    height: 100%;
-    width: 50%;
-    background-color: black;
+.next_button{
+    right: 0;
+    background: linear-gradient(90deg, #757575 0%, #575757 100%);
+}
+
+.prev_button{
+    background: linear-gradient(90deg, #575757 0%, #757575 100%)
+}
+
+.prev_button h3, .next_button h3{
+    color: white;
+}
+
+.prev_button:hover h3, .next_button:hover h3{
+    color: black;
 }
