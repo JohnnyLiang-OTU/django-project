@@ -5,26 +5,24 @@
 
 .brands{
     position: relative;
-    overflow: hidden;
-    /* padding: 20px; */
     margin: 0;
 }
 
 .title{
+    text-align: center;
     padding: 0 10vw;
     font-size: 30px;
     font-weight: 500;
-    /* margin-bottom: 40px; */
     text-transform: capitalize;
 }
 
 .brand_container{
     padding: 0 10vw;
     display: flex;
-    overflow-x: auto;
     scroll-behavior: smooth;
-    /* height: 500px;
-    width: 100%; */
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
 }
 
 .brand_container::-webkit-scrollbar{
@@ -32,7 +30,7 @@
 }
 
 .brand_card{
-    /* flex: 0 0 auto; */
+    flex: 0 0 auto;
     width: 250px;
     height: 100px;
     /* margin-left: 10px; */
@@ -42,35 +40,36 @@
 .brand_card img{
     width: 100%;
     height: 100%;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .prev_button, .next_button{
-    border: none;
-    width: 10vw;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 8;
+border: none;
+  width: 10vw;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #575757 100%);
+  cursor: pointer;
+  z-index: 8;
+}
+
+.prev_button{
+    left: 0;
+    transform: rotate(180deg);
 }
 
 .next_button{
     right: 0;
-    background: linear-gradient(90deg, #757575 0%, #575757 100%);
 }
 
-.prev_button{
-    background: linear-gradient(90deg, #575757 0%, #757575 100%)
+.prev_button img, .next_button img{
+    opacity: 0.2;
 }
 
-.prev_button h3, .next_button h3{
-    color: white;
-}
-
-.prev_button:hover h3, .next_button:hover h3{
-    color: black;
+.prev_button:hover img, .next_button:hover img{
+    opacity: 1;
 }

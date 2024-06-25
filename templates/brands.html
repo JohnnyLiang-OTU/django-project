@@ -1,10 +1,11 @@
 {% block brands %}
 {% load static %}
+<script src="{% static 'js/brands.js' %}"></script>
 <link rel="stylesheet" href="{% static 'css/brands.css' %}">
 <section class="brands">
     <h2 class="title">Marcas Reconocidas</h2>
-    <button class="prev_button"> <h3> &leftarrow; </h3> </button>
-    <button class="next_button"> <h3> &rightarrow; </h3> </button>
+    <button class="prev_button"><img src="{% static 'images/brands/arrow.png' %}"></button>
+    <button class="next_button"><img src="{% static 'images/brands/arrow.png' %}"></button>
     <div class="brand_container">
         <div class="brand_card">
             <img src="{% static 'images/brands/fram.webp' %}">
@@ -13,7 +14,19 @@
             <img src="{% static 'images/brands/aisin.png' %}">
         </div>
         <div class="brand_card">
-            <img class="brand_image" src="{% static 'images/brands/fp_diesel.jpg' %}">
+            <img src="{% static 'images/brands/fp_diesel.jpg' %}">
+        </div>
+        <div class="brand_card">
+            <img src="{% static 'images/brands/shell.png' %}">
+        </div>
+        <div class="brand_card">
+            <img src="{% static 'images/brands/luberfiner.png' %}">
+        </div>
+        <div class="brand_card">
+            <img src="{% static 'images/brands/terpel.png' %}">
+        </div>
+        <div class="brand_card">
+            <img src="{% static 'images/brands/wurth.png' %}">
         </div>
     </div>
 </section>
