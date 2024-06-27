@@ -1,62 +1,73 @@
-/* The card container holds the cards. The container contain cards duh */
-body{
+body {
     background-color: #757575;
     /* background-color: grey; */
 }
 
-.card-container {
+.card_container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 350px);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     column-gap: 20px;
-    row-gap: auto;
-    margin-top: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
+    row-gap: 20px;
+    margin: 10px 20px;
     /* padding: 5px; */
     /* border: 10px solid red; */
     /* size: auto; */
     border: solid red;
-    justify-content: space-between;
+    justify-content: center;
 }
 
-.card{
+.card {
     /* border-radius: 25px; */
     /* background-color: #000000; */
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure even distribution */
     align-items: center;
     /* padding: auto; */
-    margin: 20px 5px 5px 5px;
+    margin: 5px;
     /* width: 100%; */
     text-align: center;
     /* border: 1px solid black; */
     box-sizing: border-box;
     place-content: center;
+    height: 350px; /* Set a fixed height for all cards */
 }
 
-.card:hover .card-image{
-    border-radius: 0px;
-    width: 100.2%;
-    height: 200.5px;
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.card-image{
+.card_image {
     /* border-radius: 25px; */
     width: 100%;
-    height: 200px;
+    height: 250px; /* Set a fixed height for images */
+    object-fit: cover; /* Ensure images cover the area without distortion */
 }
 
-.card-image-default{
+.card_image_default {
     /* place-content: center; */
     display: inline-block;
-    width: 300px;
-    height: 200px;
+    width: 100%;
+    height: auto;
     padding: 0;
 }
 
-.card-id{
+.card_id, .card_description {
     display: inline-block;
+    margin-top: 10px;
+    height: 50px; /* Set a fixed height for descriptions */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
 }
 
-.card-description{
-    display: inline-block;
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .card_container {
+        grid-template-columns: 1fr;
+        margin: 10px;
+    }
+    
+    .card {
+        margin: 10px 0;
+    }
 }

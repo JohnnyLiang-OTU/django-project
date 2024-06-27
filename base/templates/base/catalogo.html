@@ -8,19 +8,19 @@
 
 {% block content %}
 {% include 'brands.html' %}
-<div class="card-container">
+<div class="card_container">
     {% for product in products %}
         <div class="card">
             <!-- {{ product.id }} - {{ product.product_id }} - {{ product.description }} -->
             {% if product.image %}
-                <img src="{{ product.image.url }}" alt="Product Image" class="card-image">
-                <!-- {{product.image.url}} -->
+                <img src="{{ product.image.url }}" alt="Product Image" class="card_image">
+                    <!-- {{product.image.url}} -->
             {% else %}
-                <div class="card-image-default">No image available for this product</div>
+                <div class="card_image_default">No image available for this product</div>
             {% endif %}
-            <div class="card-content">
+            <div class="card_content">
                 <!-- <p class="card-id">{{ product.product_id }}</p> -->
-                <p class="card-description">{{ product.description }}</p>
+                <p class="card_description">{{ product.description }}</p>
             </div>
             <!-- <a href="{% url 'edit_form' product.id %}">Edit</a>
             <form method="POST" action="{% url 'delete_product' product.id %}">
