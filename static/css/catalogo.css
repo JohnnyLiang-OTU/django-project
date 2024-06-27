@@ -21,7 +21,7 @@ body {
     /* background-color: #000000; */
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Ensure even distribution */
+    justify-content: flex-start; /* Changed to flex-start */
     align-items: center;
     /* padding: auto; */
     margin: 5px;
@@ -30,7 +30,7 @@ body {
     /* border: 1px solid black; */
     box-sizing: border-box;
     place-content: center;
-    height: 350px; /* Set a fixed height for all cards */
+    height: 300px; /* Set a fixed height for all cards */
 }
 
 .card:hover {
@@ -44,6 +44,14 @@ body {
     object-fit: cover; /* Ensure images cover the area without distortion */
 }
 
+.card_content {
+    flex: 1; /* Allow card_content to take remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute content evenly */
+    width: 100%;
+}
+
 .card_image_default {
     /* place-content: center; */
     display: inline-block;
@@ -55,9 +63,6 @@ body {
 .card_id, .card_description {
     display: inline-block;
     margin-top: 10px;
-    height: 50px; /* Set a fixed height for descriptions */
-    overflow: hidden; /* Hide overflow text */
-    text-overflow: ellipsis; /* Add ellipsis for overflow text */
 }
 
 /* Responsive adjustments */
