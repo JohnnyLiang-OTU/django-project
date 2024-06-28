@@ -4,7 +4,7 @@ function checked_array_body()
 {
     console.log(checked_array);
 }
-
+// <-------- Checkbox Logic ----------->
 function handle_bulk_checkbox(self) {
     const table_body = document.getElementById('table_body');
     const set_of_tr = table_body.querySelectorAll('tr');
@@ -53,6 +53,9 @@ function remove_from_checked(param)
     checked_array = checked_array.filter(item => item !== param);
 }
 
+// <-------- End of Checkbox Logic ---------->
+
+// <------- Deletion Logic --------------->
 function delete_checked_products(e){
     if(checked_array.length === 0 ) return;
     if(!confirm('Are you sure?')){
@@ -100,6 +103,8 @@ function updateUI(deletedIds){
         }
     });
 }
+
+// <------------- End of Deletion Logic --------->
 
 function getCookie(name){
     let cookieValue = null;

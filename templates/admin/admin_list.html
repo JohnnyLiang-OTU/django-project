@@ -12,6 +12,7 @@
                 <th>Database ID</th>
                 <th>Description</th>
                 <th>Last Updated</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody id="table_body">
@@ -21,6 +22,8 @@
                 <th>{{product.id}}</th>
                 <th>{{product.description}}</th>
                 <th>{{product.updated}}</th>
+                {% csrf_token %}
+                <th><a href="{% url 'edit_form' product.id %}" target="_blank">Edit</a></th>
             </tr>
             {% endfor %}
         </tbody>

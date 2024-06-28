@@ -27,18 +27,6 @@ def product_form(request):
     context = {"product_form": form}
     return render(request, 'base/productform.html', context)
 
-def edit_form(request, pk):
-    product = Product.objects.get(id=pk)
-    if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES, instance=product)
-        if form.is_valid():
-            form.save()
-            return redirect("home")
-    else:
-        form = ProductForm(instance=product)
-    context = {'product_form':form}
-    return render(request, 'base/productform.html', context)
-
 def delete_product(request, pk):
     if request.method == 'POST':
         product = get_object_or_404(Product, pk=pk)
@@ -61,7 +49,7 @@ def home_front(request):
 def catalog(request):
     # product_set = Product.objects.all()
 
-    paginator = Paginator(Product.objects.all().order_by('product_id'), 12)
+    paginator = Paginator(Product.objects.all().order_by('id'), 12)
     page = request.GET.get('page')
     products = paginator.get_page(page)
 
@@ -76,21 +64,8 @@ def recommend(request):
 def success(request):
     return render(request, 'base/success.html')
 
-@require_POST
-def delete_models(request):
-    try:
-        data = json.loads(request.body)
-        ids = data.get('ids', [])
-        if ids:
-            Product.objects.filter(pk__in=ids).delete()
-            return JsonResponse({'status':'success'}, status=200)
-        else:
-            return JsonResponse({'status':'error',
-                                 'message':'No IDs provided'}, status=400)
-    except Exception as e:
-        return JsonResponse({'status': 'error',
-                             'message': str(e)}, status=500)
-###
+
+# <------- Admin Views (Delete, Edit, ...) ------>
 
 @staff_member_required
 def administrador(request):
@@ -98,3 +73,33 @@ def administrador(request):
     context = {"products" : products}
     return render(request, 'admin/admin_list.html', context)
 
+@staff_member_required
+def edit_form(request, pk):
+    product = Product.objects.get(id=pk)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect("catalogo")
+    else:
+        form = ProductForm(instance=product)
+    context = {'product_form':form}
+    return render(request, 'base/productform.html', context)
+
+@require_POST
+@staff_member_required
+def delete_models(request):
+    try:
+        data = json.loads(request.body)
+        ids = data.get('ids', [])
+        if ids:
+            for e in ids:
+                Product.objects.get(pk=e).delete()
+            return JsonResponse({'status':'success'}, status=200)
+        else:
+            return JsonResponse({'status':'error',
+                                 'message':'No IDs provided'}, status=400)
+    except Exception as e:
+        return JsonResponse({'status': 'error',
+                             'message': str(e)}, status=500)
+                             
