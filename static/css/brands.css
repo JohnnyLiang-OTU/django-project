@@ -4,13 +4,15 @@
 }
 
 .brands{
+    margin-top: 5px;
+    background-color: white;
     position: relative;
-    margin: 0;
+    padding: 0 20px 20px 20px;
 }
 
 .title{
     text-align: center;
-    padding: 0 10vw;
+    padding: 10px 10vw;
     font-size: 30px;
     font-weight: 500;
     text-transform: capitalize;
