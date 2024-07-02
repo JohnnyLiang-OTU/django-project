@@ -11,6 +11,8 @@
                 </th>
                 <th>Database ID</th>
                 <th>Description</th>
+                <th>Precio</th>
+                <th>Mostrar Precio</th>
                 <th>Last Updated</th>
                 <th>Edit</th>
             </tr>
@@ -21,6 +23,8 @@
                 <th><input type="checkbox" autocomplete="off" onclick="handle_checkbox(this, {{product.id}})"></th>
                 <th>{{product.id}}</th>
                 <th>{{product.description}}</th>
+                <th>{{product.price}}</th>
+                <th>{{product.display_price}}</th>
                 <th>{{product.updated}}</th>
                 {% csrf_token %}
                 <th><a href="{% url 'edit_form' product.id %}" target="_blank">Edit</a></th>

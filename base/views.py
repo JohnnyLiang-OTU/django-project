@@ -11,22 +11,6 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 
-@staff_member_required
-def product_form(request):
-    if request.method == "POST":
-        form = ProductForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            if 'submit_add_another' in request.POST:
-                return redirect('add_product')
-            else:
-                return redirect('catalogo')
-    else:
-        form = ProductForm()
-    
-    context = {"product_form": form}
-    return render(request, 'base/productform.html', context)
-
 def delete_product(request, pk):
     if request.method == 'POST':
         product = get_object_or_404(Product, pk=pk)
@@ -72,6 +56,22 @@ def administrador(request):
     products = Product.objects.all()
     context = {"products" : products}
     return render(request, 'admin/admin_list.html', context)
+
+@staff_member_required
+def product_form(request):
+    if request.method == "POST":
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            if 'submit_add_another' in request.POST:
+                return redirect('add_product')
+            else:
+                return redirect('catalogo')
+    else:
+        form = ProductForm()
+    
+    context = {"product_form": form}
+    return render(request, 'base/productform.html', context)
 
 @staff_member_required
 def edit_form(request, pk):

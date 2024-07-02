@@ -16,7 +16,8 @@
                 <img src="{{ product.image.url }}" alt="Product Image" class="card_image">
                     <!-- {{product.image.url}} -->
             {% else %}
-                <div class="card_image_default">No image available for this product</div>
+                <!-- <div class="card_image_default">No image available for this product</div> -->
+                 <img src="{% static 'images/default_image.jpg' %}" class="card_image">
             {% endif %}
             <div class="card_content">
                 <!-- <p class="card-id">{{ product.product_id }}</p> -->

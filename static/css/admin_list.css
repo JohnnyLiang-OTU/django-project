@@ -7,3 +7,7 @@ tbody th{
 thead th{
     padding: 5px;
 }
+
+.product_table{
+    border-spacing: 20px 0;
+}
