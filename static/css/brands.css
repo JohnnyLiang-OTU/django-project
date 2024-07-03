@@ -5,28 +5,30 @@
 }
 
 .brands {
-    background-color: #f0f0f0;
+    background-color: #1a1a1a;
     position: relative;
-    padding: 40px 20px;
+    padding: 30px 20px;
 }
 
 .title {
     text-align: center;
-    padding: 0 10vw 30px;
-    font-size: 2rem;
+    /* padding: 0 10vw 30px; */
+    font-size: 2.2rem;
     font-weight: 600;
-    color: #1a1a1a;
+    color: #ffffff;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .brand_container {
-    padding: 0 10vw;
+    padding: 10px 0;
     display: flex;
-    scroll-behavior: smooth;
+    justify-content: center;
+    /* scroll-behavior: smooth;
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: none;
-    -ms-overflow-style: none;
+    -ms-overflow-style: none; */
 }
 
 .brand_container::-webkit-scrollbar {
@@ -35,95 +37,101 @@
 
 .brand_card {
     flex: 0 0 auto;
-    width: 200px;
-    height: 100px;
-    margin-right: 20px;
+    width: 180px;
+    height: 90px;
+    margin-right: 25px;
     background-color: #ffffff;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .brand_card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
 }
 
 .brand_card img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 10px;
+    padding: 15px;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.brand_card:hover img {
+    filter: grayscale(0%);
 }
 
 .prev_button, .next_button {
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(26, 26, 26, 0.8);
+    background: rgba(228, 77, 38, 0.8);
     cursor: pointer;
     border-radius: 50%;
     z-index: 8;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .prev_button {
-    transform: rotate(180deg);
-    left: 10px;
+    justify-content: center;
+    left: 20px;
 }
 
 .next_button {
-    right: 10px;
+    justify-content: center;
+    right: 20px;
 }
 
 .prev_button img, .next_button img {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     filter: invert(1);
-    opacity: 0.7;
+    opacity: 1;
     transition: opacity 0.3s ease;
 }
 
-.prev_button:hover, .next_button:hover {
-    background-color: rgba(228, 77, 38, 0.8);
+.prev_button img{
+    transform: rotate(180deg);
 }
 
-.prev_button:hover img, .next_button:hover img {
-    opacity: 1;
+.prev_button:hover, .next_button:hover {
+    background-color: rgba(228, 77, 38, 1);
+    transform: translateY(-50%) scale(1.1);
 }
 
 @media (max-width: 768px) {
     .brands {
-        padding: 30px 10px;
+        padding: 40px 10px;
     }
 
     .title {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         padding: 0 5vw 20px;
     }
 
-    .brand_container {
-        padding: 0 5vw;
-    }
-
     .brand_card {
-        width: 150px;
-        height: 75px;
+        width: 140px;
+        height: 70px;
+        margin-right: 15px;
     }
 
     .prev_button, .next_button {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
     }
 
     .prev_button img, .next_button img {
-        width: 15px;
-        height: 15px;
+        width: 20px;
+        height: 20px;
     }
 }

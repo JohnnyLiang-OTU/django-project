@@ -94,6 +94,15 @@ body {
     font-weight: bold;
 }
 
+.catalog_title{
+    text-align: center;
+    /* padding: 0 10vw 30px; */
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-transform: uppercase;
+}
+
 @media (max-width: 600px) {
     .card_container {
         grid-template-columns: 1fr;
