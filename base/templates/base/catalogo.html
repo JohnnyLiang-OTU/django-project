@@ -1,45 +1,47 @@
 {% extends 'main.html' %}
 {% load static %}
 {% block title %}Catalogo{% endblock title %}
-
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/catalogo.css' %}">
 {% endblock extra_css %}
-
 {% block content %}
 {% include 'brands.html' %}
 <div class="card_container">
     {% for product in products %}
         <div class="card">
-            <!-- {{ product.id }} - {{ product.product_id }} - {{ product.description }} -->
-            {% if product.image %}
-                <img src="{{ product.image.url }}" alt="Product Image" class="card_image">
-                    <!-- {{product.image.url}} -->
-            {% else %}
-                <!-- <div class="card_image_default">No image available for this product</div> -->
-                 <img src="{% static 'images/default_image.jpg' %}" class="card_image">
-            {% endif %}
-            <div class="card_content">
-                <!-- <p class="card-id">{{ product.product_id }}</p> -->
-                <p class="card_description">{{ product.description }}</p>
+            <div class="card_image_container">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.description }}" class="card_image">
+                {% else %}
+                    <img src="{% static 'images/default_image.jpg' %}" alt="Default Image" class="card_image">
+                {% endif %}
             </div>
-            <!-- <a href="{% url 'edit_form' product.id %}">Edit</a>
-            <form method="POST" action="{% url 'delete_product' product.id %}">
-                {% csrf_token %}
-                <button type="submit">Delete</button>
-            </form> -->
-            <br>
+            <div class="card_content">
+                <p class="card_id">{{ product.product_id }}</p>
+                <p class="card_description">{{ product.description }}</p>
+                {% if product.display_price %}
+                    <p class="card_price">${{ product.price }}</p>
+                {% endif %}
+            </div>
         </div>
+    {% empty %}
+        <p class="no_products">No products available.</p>
     {% endfor %}
 </div>
-<br/><br/>
-{{ products }}
-{% if products.has_previous  %}
-    <a href="?page=1">&laquo; First</a>
-    <a href="?page={{products.previos_page_number}}">Previous</a>
-{% endif %}
-{% if products.has_next %}
-    <a href="?page={{products.next_page_number}}">Next</a>
-    <a href="?page={{products.paginator.num_pages}}">&raquo; Last</a>
-{% endif %}
+
+<div class="pagination">
+    {% if products.has_previous %}
+        <a href="?page=1" class="pagination_link">&laquo; First</a>
+        <a href="?page={{ products.previous_page_number }}" class="pagination_link">Previous</a>
+    {% endif %}
+    
+    <span class="current_page">
+        Page {{ products.number }} of {{ products.paginator.num_pages }}
+    </span>
+
+    {% if products.has_next %}
+        <a href="?page={{ products.next_page_number }}" class="pagination_link">Next</a>
+        <a href="?page={{ products.paginator.num_pages }}" class="pagination_link">Last &raquo;</a>
+    {% endif %}
+</div>
 {% endblock content %}

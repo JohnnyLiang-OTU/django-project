@@ -80,11 +80,11 @@ def edit_form(request, pk):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            return redirect("catalogo")
+            return redirect("administrador")
     else:
         form = ProductForm(instance=product)
     context = {'product_form':form}
-    return render(request, 'base/productform.html', context)
+    return render(request, 'base/editform.html', context)
 
 @require_POST
 @staff_member_required

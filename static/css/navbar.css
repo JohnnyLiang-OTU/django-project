@@ -1,19 +1,70 @@
 .navbar {
     display: flex;
-    align-items: center; 
-    justify-content: space-between; 
-    padding-right: 15px;
-    /* margin-right: 10px; */
-    background-color: #a1a1ab;
-    height: max-content;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.navbar a {
-    text-decoration: none; 
+.navbar__logo img {
+    height: 40px;
+    width: auto;
 }
 
-.navbar img {
-    display: block;
-    height: fit-content; 
-    width: auto; 
+.navbar__contact-info {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar__contact-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.navbar__contact-item:hover {
+    color: #e44d26;
+}
+
+.navbar__contact-item i {
+    margin-right: 5px;
+    font-size: 1.2em;
+}
+
+.navbar__catalog-button {
+    background-color: #e44d26;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.navbar__catalog-button:hover {
+    background-color: #c13b1b;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .navbar__contact-info {
+        flex-direction: column;
+        align-items: center;
+        margin: 10px 0;
+    }
+
+    .navbar__contact-item {
+        margin: 5px 0;
+    }
+
+    .navbar__catalog-button {
+        margin-top: 10px;
+    }
 }
