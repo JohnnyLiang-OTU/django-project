@@ -48,6 +48,8 @@ def recommend(request):
 def success(request):
     return render(request, 'base/success.html')
 
+def handle_404(request, exception):
+    return render(request, '404.html', {})
 
 # <------- Admin Views (Delete, Edit, ...) ------>
 

@@ -8,7 +8,7 @@ venv/
 *.pyc
 __pycache__/
 db.sqlite3
-media/
+base/static/images
 
 # Ignore all settings.py files
 **/settings.py

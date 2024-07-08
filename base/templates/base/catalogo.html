@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card_image_container">
                 {% if product.image %}
-                    <img src="{{ product.image.url }}" alt="{{ product.description }}" class="card_image">
+                    <img src="{{ product.image.url }}" alt="Render Problem" class="card_image">
                 {% else %}
                     <img src="{% static 'images/default_image.jpg' %}" alt="Default Image" class="card_image">
                 {% endif %}
@@ -33,7 +33,7 @@
 <div class="pagination">
     {% if products.has_previous %}
         <a href="?page=1" class="pagination_link">&laquo; First</a>
-        <a href="?page={{ products.previous_page_number }}" class="pagination_link">Previous</a>
+        <a href="?page={{ products.previous_page_number }}" class="pagination_link">&larr; Previous</a>
     {% endif %}
     
     <span class="current_page">
@@ -41,7 +41,7 @@
     </span>
 
     {% if products.has_next %}
-        <a href="?page={{ products.next_page_number }}" class="pagination_link">Next</a>
+        <a href="?page={{ products.next_page_number }}" class="pagination_link">Next &rarr;</a>
         <a href="?page={{ products.paginator.num_pages }}" class="pagination_link">Last &raquo;</a>
     {% endif %}
 </div>

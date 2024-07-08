@@ -3,36 +3,38 @@
 {% block content %}
     <script src="{% static 'js/admin_list.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/admin_list.css' %}">
-    <table class="product_table">
-        <thead>
-            <tr>
-                <th>
-                    <input id="bulk_checkbox" type="checkbox" autocomplete="off" onclick="handle_bulk_checkbox(this)">
-                </th>
-                <th>Database ID</th>
-                <th>Description</th>
-                <th>Precio</th>
-                <th>Mostrar Precio</th>
-                <th>Last Updated</th>
-                <th>Edit</th>
-            </tr>
-        </thead>
-        <tbody id="table_body">
-            {% for product in products %}
-            <tr id="{{product.id}}" class="table_unit">
-                <th><input type="checkbox" autocomplete="off" onclick="handle_checkbox(this, {{product.id}})"></th>
-                <th>{{product.id}}</th>
-                <th>{{product.description}}</th>
-                <th>{{product.price}}</th>
-                <th>{{product.display_price}}</th>
-                <th>{{product.updated}}</th>
-                {% csrf_token %}
-                <th><a href="{% url 'edit_form' product.id %}" target="_blank">Edit</a></th>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <!-- <button type="button" onclick="delete_model_instances()">Delete</button> -->
-    <button type="button" onclick="delete_checked_products(event)">Delete</button>
-    <!-- <button type="button" onclick="checked_array_body()">Check</button> -->
+    <div id="admin_list_content">
+        <table class="product_table">
+            <thead>
+                <tr>
+                    <th>
+                        <input id="bulk_checkbox" type="checkbox" autocomplete="off" onclick="handle_bulk_checkbox(this)">
+                    </th>
+                    <th>Database ID</th>
+                    <th>Description</th>
+                    <th>Precio</th>
+                    <th>Mostrar Precio</th>
+                    <th>Last Updated</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody id="table_body">
+                {% for product in products %}
+                <tr id="{{product.id}}" class="table_unit">
+                    <th><input type="checkbox" autocomplete="off" onclick="handle_checkbox(this, {{product.id}})"></th>
+                    <th>{{product.id}}</th>
+                    <th>{{product.description}}</th>
+                    <th>{{product.price}}</th>
+                    <th>{{product.display_price}}</th>
+                    <th>{{product.updated}}</th>
+                    {% csrf_token %}
+                    <th><a href="{% url 'edit_form' product.id %}" target="_blank">Edit</a></th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <!-- <button type="button" onclick="delete_model_instances()">Delete</button> -->
+        <button type="button" onclick="delete_checked_products(event)">Delete</button>
+        <!-- <button type="button" onclick="checked_array_body()">Check</button> -->
+    </div>
 {% endblock content %}

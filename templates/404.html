@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página No Existe</title>
+
+</head>
+{% extends 'main.html' %}
+{% block content %}
+<style>
+    .container_404{
+        background-color: #f0f0f0;
+        height: 20vw;
+        width: auto;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    .block{
+        /* background-color: red; */
+        width: fit-content;
+        top: 50%;
+        bottom: 50%;
+        /* position: absolute; */
+    }   
+
+    .msg_404{
+        margin: 0;
+    }
+
+    #big{
+        font-size: 60px;
+    }
+    #small{
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+</style>
+    <div class="container_404">
+        <div class="block">
+            <p id="big" class="msg_404">404 Error</p>
+            <p id="small" class="msg_404">Esta pagina no existe!</p>
+            <h2>Regrese a nuestro catalogo:</h2>
+            <a href="{% url 'catalogo' %}" class="navbar__catalog-button">View Catalog</a>
+        </div>
+    </div>
+{% endblock content %}
