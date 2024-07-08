@@ -26,3 +26,20 @@ class ProductModelTest(TestCase):
         self.product.delete()
         print(image_path, os.path.exists(image_path))
         self.assertFalse(os.path.exists(image_path))
+
+from django.test import TestCase, Client
+from django.conf import settings
+
+class Error500Test(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.original_debug = settings.DEBUG
+        settings.DEBUG = False
+
+    def tearDown(self):
+        settings.DEBUG = self.original_debug
+
+    def test_500_view(self):
+        response = self.client.get('/test-500/')
+        self.assertEqual(response.status_code, 500)
+        self.assertTemplateUsed(response, '500.html')

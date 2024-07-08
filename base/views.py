@@ -51,6 +51,20 @@ def success(request):
 def handle_404(request, exception):
     return render(request, '404.html', {})
 
+import logging
+logger = logging.getLogger('django')
+
+def handle_500(request):
+    logger.error("A server error occurred", exc_info=True)
+    return render(request, '500.html', status=500)
+
+def test_error_email(request):
+    try:
+        raise Exception("Test error email")
+    except Exception as e:
+        logger.error("Test error occurred", exc_info=True)
+        raise
+
 # <------- Admin Views (Delete, Edit, ...) ------>
 
 @staff_member_required

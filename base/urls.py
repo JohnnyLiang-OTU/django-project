@@ -14,6 +14,7 @@ urlpatterns = [
     path('administrador/add/', views.product_form, name="add_product"),
     # path('product-form/success/', views.success, name="success")
     path('delete_models/', views.delete_models, name='delete_models'),
+    path('errorazo/', views.test_error_email, name="error_raiser")
 ]
 
 if settings.DEBUG:
