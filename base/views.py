@@ -33,7 +33,7 @@ def home_front(request):
 def catalog(request):
     # product_set = Product.objects.all()
 
-    paginator = Paginator(Product.objects.all().order_by('id'), 12)
+    paginator = Paginator(Product.objects.all().order_by('id'), 15)
     page = request.GET.get('page')
     products = paginator.get_page(page)
 
