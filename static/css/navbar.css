@@ -35,7 +35,16 @@
     font-size: 1.2em;
 }
 
-.navbar__catalog-button {
+#navbar__whatsapp_button {
+    background-color: #25d366;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+#navbar__catalog_button {
     background-color: #e44d26;
     color: #ffffff;
     padding: 10px 15px;
@@ -44,7 +53,7 @@
     transition: background-color 0.3s ease;
 }
 
-.navbar__catalog-button:hover {
+#navbar__catalog_button:hover {
     background-color: #c13b1b;
 }
 

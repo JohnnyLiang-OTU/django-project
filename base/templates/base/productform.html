@@ -8,7 +8,7 @@
 <body>
     {% extends 'admin/admin_base.html' %}
     {% block content %}
-    {% load crispy_forms_tags %}
+    <!-- {% load crispy_forms_tags %} -->
     <form method="POST", enctype="multipart/form-data">
         {% csrf_token %}
         {{ product_form.as_p }}
