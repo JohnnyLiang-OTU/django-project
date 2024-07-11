@@ -6,43 +6,45 @@
 {% endblock extra_css %}
 {% block content %}
 {% include 'brands.html' %}
-<h1 class="catalog_title">Catalogo</h1>
-<div class="card_container">
-    {% for product in products %}
-        <div class="card">
-            <div class="card_image_container">
-                {% if product.image %}
-                    <img src="{{ product.image.url }}" alt="Render Problem" class="card_image">
-                {% else %}
-                    <img src="{% static 'images/default_image.jpg' %}" alt="Default Image" class="card_image">
-                {% endif %}
+<div id="catalogo_container">
+    <h1 class="catalog_title">Catalogo</h1>
+    <div class="card_container">
+        {% for product in products %}
+            <div class="card">
+                <div class="card_image_container">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="Render Problem" class="card_image">
+                    {% else %}
+                        <img src="{% static 'images/default_image.jpg' %}" alt="Default Image" class="card_image">
+                    {% endif %}
+                </div>
+                <div class="card_content">
+                    <p class="card_id">{{ product.product_id }}</p>
+                    <p class="card_description">{{ product.description }}</p>
+                    {% if product.display_price %}
+                        <p class="card_price">${{ product.price }}</p>
+                    {% endif %}
+                </div>
             </div>
-            <div class="card_content">
-                <p class="card_id">{{ product.product_id }}</p>
-                <p class="card_description">{{ product.description }}</p>
-                {% if product.display_price %}
-                    <p class="card_price">${{ product.price }}</p>
-                {% endif %}
-            </div>
-        </div>
-    {% empty %}
-        <p class="no_products">No products available.</p>
-    {% endfor %}
-</div>
-
-<div class="pagination">
-    {% if products.has_previous %}
-        <a href="?page=1" class="pagination_link">&laquo; First</a>
-        <a href="?page={{ products.previous_page_number }}" class="pagination_link">&larr; Previous</a>
-    {% endif %}
-
-    <span class="current_page">
-        Page {{ products.number }} of {{ products.paginator.num_pages }}
-    </span>
-
-    {% if products.has_next %}
-        <a href="?page={{ products.next_page_number }}" class="pagination_link">Next &rarr;</a>
-        <a href="?page={{ products.paginator.num_pages }}" class="pagination_link">Last &raquo;</a>
-    {% endif %}
+        {% empty %}
+            <p class="no_products">No products available.</p>
+        {% endfor %}
+    </div>
+    
+    <div class="pagination">
+        {% if products.has_previous %}
+            <a href="?page=1" class="pagination_link">&laquo; First</a>
+            <a href="?page={{ products.previous_page_number }}" class="pagination_link">&larr; Previous</a>
+        {% endif %}
+    
+        <span class="current_page">
+            Page {{ products.number }} of {{ products.paginator.num_pages }}
+        </span>
+    
+        {% if products.has_next %}
+            <a href="?page={{ products.next_page_number }}" class="pagination_link">Next &rarr;</a>
+            <a href="?page={{ products.paginator.num_pages }}" class="pagination_link">Last &raquo;</a>
+        {% endif %}
+    </div>
 </div>
 {% endblock content %}
