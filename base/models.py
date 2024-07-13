@@ -10,7 +10,7 @@ class Product(models.Model):
     display_price = models.BooleanField(default=False)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(null=True, blank=True, upload_to="static/images")
+    image = models.ImageField(null=True, blank=True, upload_to="media/static/images")
 
     def delete(self, *args, **kwargs):
         if self.image:

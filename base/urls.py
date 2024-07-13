@@ -2,6 +2,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('', views.catalog, name="catalogo"),
@@ -14,7 +15,8 @@ urlpatterns = [
     path('administrador/add/', views.product_form, name="add_product"),
     # path('product-form/success/', views.success, name="success")
     path('delete_models/', views.delete_models, name='delete_models'),
-    path('errorazo/', views.test_error_email, name="error_raiser")
+    path('errorazo/', views.test_error_email, name="error_raiser"),
+    path('logout/', LogoutView.as_view(), name="logout_view")
 ]
 
 if settings.DEBUG:

@@ -12,9 +12,17 @@
     <a href="{% url 'administrador' %}"><h1>Auto Centro Santa Rita - Administracion</h1></a>
 </header>
 <nav>
-    <a href="{% url 'administrador' %}">Home</a>
-    <a href="{% url 'add_product' %}" target="_blank">Add Product</a>
-    <a href="{% url 'catalogo' %}">Catalogo</a>
+    <div>
+        <a href="{% url 'administrador' %}">Home</a>
+        <a href="{% url 'add_product' %}" target="_blank">Add Product</a>
+        <a href="{% url 'catalogo' %}">Catalogo</a>
+    </div>
+    <div>
+        <for action="{% url 'logout_view' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+        </for>
+    </div>
 </nav>
 <body>
     {% block content %}

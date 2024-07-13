@@ -5,6 +5,7 @@ import os, json
 from django.contrib.admin.views.decorators import staff_member_required
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse
+from django.views.decorators.cache import cache_control
 
 # Pagination Stuff
 from django.core.paginator import Paginator
@@ -68,12 +69,14 @@ def test_error_email(request):
 # <------- Admin Views (Delete, Edit, ...) ------>
 
 @staff_member_required
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def administrador(request):
     products = Product.objects.all()
     context = {"products" : products}
     return render(request, 'admin/admin_list.html', context)
 
 @staff_member_required
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def product_form(request):
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES)
@@ -90,6 +93,7 @@ def product_form(request):
     return render(request, 'base/productform.html', context)
 
 @staff_member_required
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def edit_form(request, pk):
     product = Product.objects.get(id=pk)
     if request.method == 'POST':
@@ -104,6 +108,7 @@ def edit_form(request, pk):
 
 @require_POST
 @staff_member_required
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def delete_models(request):
     try:
         data = json.loads(request.body)
